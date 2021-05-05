@@ -49,7 +49,7 @@ namespace Platformer.Mechanics
         void OnPlayerEnter(PlayerController player)
         {
             if (collected) return;
-            player.PlayerScore += 10;
+            player.PlayerScore += 1;
             //disable the gameObject and remove it from the controller update list.
             frame = 0;
             sprites = collectedAnimation;

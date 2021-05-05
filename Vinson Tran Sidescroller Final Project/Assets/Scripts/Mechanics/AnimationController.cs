@@ -61,9 +61,9 @@ namespace Platformer.Mechanics
                     velocity.y = velocity.y * model.jumpDeceleration;
                 }
             }
-            if(IsGrounded)
+           // if(IsGrounded)
             {
-                jump = true;
+               // jump = true;
             }
             if (move.x > 0.01f)
                 spriteRenderer.flipX = false;

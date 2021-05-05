@@ -19,6 +19,7 @@ namespace Platformer.Mechanics
         public AudioClip jumpAudio;
         public AudioClip respawnAudio;
         public AudioClip ouchAudio;
+        public AudioClip oof;
         public TextMeshProUGUI ScoreText;
 
         /// <summary>
@@ -86,7 +87,7 @@ namespace Platformer.Mechanics
             UpdateJumpState();
             base.Update();
 
-            ScoreText.text = "score:  " + PlayerScore;
+            ScoreText.text = "Coins:  " + PlayerScore;
         }
 
         void UpdateJumpState()
@@ -145,7 +146,18 @@ namespace Platformer.Mechanics
 
             targetVelocity = move * maxSpeed;
         }
+       /* void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.name.Equals("Cloud"))
+                this.transform.parent = col.transform;
+        }
 
+        void OnCollisionExit2D(Collision2D col)
+        {
+            if (col.gameObject.name.Equals("Cloud"))
+                this.transform.parent = null;
+        }
+       */
         public enum JumpState
         {
             Grounded,

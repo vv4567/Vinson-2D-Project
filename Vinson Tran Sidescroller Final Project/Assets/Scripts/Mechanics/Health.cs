@@ -2,25 +2,74 @@ using System;
 using Platformer.Gameplay;
 using UnityEngine;
 using static Platformer.Core.Simulation;
+using UnityEngine.UI;
 
-namespace Platformer.Mechanics
-{
+
+namespace Platformer.Mechanics {
+    /*{
+    /*public class HealthHeart : MonoBehaviour
+    {
+        public int health;
+        public int numOfHearts;
+
+        public Image[] hearts;
+        public Sprite fullHeart;
+        public Sprite emptyHeart;
+    
+    }
+*/
+
     /// <summary>
     /// Represebts the current vital statistics of some game entity.
     /// </summary>
     public class Health : MonoBehaviour
     {
-        /// <summary>
-        /// The maximum hit points for the entity.
-        /// </summary>
-        public int maxHP = 1;
+        public int health;
+        public int numOfHearts;
+
+        public Image[] hearts;
+        public Sprite fullHeart;
+        public Sprite emptyHeart;
+
+        void Update() {
+
+            if(currentHP> numOfHearts)
+            {
+                currentHP = numOfHearts;
+            }
+
+            for (int i = 0; i < hearts.Length; i++) {
+
+                if (i < currentHP) {
+
+                    hearts[i].sprite = fullHeart; } else {
+                    hearts[i].sprite = emptyHeart;
+
+if (i < numOfHearts)
+
+                    
+
+                    hearts[i].enabled = true;
+
+else
+                    {
+                        hearts[i].enabled = false;
+                    }
+                }
+            }
+        }
+
+    /// <summary>
+    /// The maximum hit points for the entity.
+    /// </summary>
+public int maxHP = 3;
 
         /// <summary>
         /// Indicates if the entity should be considered 'alive'.
         /// </summary>
         public bool IsAlive => currentHP > 0;
 
-        int currentHP;
+        public int currentHP;
 
         /// <summary>
         /// Increment the HP of the entity.
