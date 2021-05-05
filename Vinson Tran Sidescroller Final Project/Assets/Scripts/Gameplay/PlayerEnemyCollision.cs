@@ -53,6 +53,8 @@ namespace Platformer.Gameplay
                 else
                 {
                     player.health.Decrement();
+                    player.animator.SetTrigger("hurt");
+                    player.audioSource.PlayOneShot(player.ouchAudio);
                 }
                     
             }
